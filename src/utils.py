@@ -61,6 +61,11 @@ async def _fetch(url: str, proxy_url: Optional[str] = None, wait_selector: Optio
             # Get HTML
             html = await page.content()
             
+            # Debug logging
+            print(f"Fetched URL: {url}")
+            print(f"HTML length: {len(html)}")
+            print(f"First 500 chars: {html[:500]}")
+            
             await page.close()
             
             # Verify we got meaningful content

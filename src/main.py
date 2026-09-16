@@ -149,11 +149,12 @@ async def main() -> None:
             await asyncio.sleep(2)
         
         # Save task context
+        env = Actor.get_env()
         await Actor.set_value('SAVED-TASK', {
-            'actorId': Actor.config.actor_id,
-            'actorRunId': Actor.config.actor_run_id,
-            'defaultDatasetId': Actor.config.default_dataset_id,
-            'startedAt': Actor.config.started_at.isoformat() if Actor.config.started_at else None,
+            'actorId': env.get('actor_id'),
+            'actorRunId': env.get('actor_run_id'),
+            'defaultDatasetId': env.get('default_dataset_id'),
+            'startedAt': env.get('started_at'),
             'input': actor_input,
             'stats': {
                 'itemsScraped': item_count,
