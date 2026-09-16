@@ -1,0 +1,81 @@
+{
+  "$schema": "https://apify.com/schemas/v1/input.ide.json",
+  "title": "OLX Indonesia Scraper Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "searchQuery": {
+      "type": "string",
+      "title": "Search Keywords",
+      "description": "What to search for (e.g., 'mobil', 'motor', 'rumah', 'laptop')",
+      "prefill": "mobil",
+      "editor": "textfield"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "description": "Filter by category",
+      "prefill": "vehicles",
+      "editor": "select",
+      "enum": ["all", "vehicles", "property", "electronics", "jobs", "services"],
+      "enumTitles": ["All Categories", "Vehicles", "Property", "Electronics", "Jobs", "Services"]
+    },
+    "location": {
+      "type": "string",
+      "title": "Location",
+      "description": "City or region in Indonesia (e.g., 'jakarta', 'bandung', 'surabaya')",
+      "prefill": "jakarta",
+      "editor": "textfield"
+    },
+    "priceMin": {
+      "type": "integer",
+      "title": "Minimum Price (Rp)",
+      "description": "Minimum price in Indonesian Rupiah (optional)",
+      "prefill": 0,
+      "editor": "number"
+    },
+    "priceMax": {
+      "type": "integer",
+      "title": "Maximum Price (Rp)",
+      "description": "Maximum price in Indonesian Rupiah (optional)",
+      "prefill": 100000000,
+      "editor": "number"
+    },
+    "sortBy": {
+      "type": "string",
+      "title": "Sort Results By",
+      "description": "Order of results",
+      "prefill": "date",
+      "editor": "select",
+      "enum": ["relevance", "date", "price_asc", "price_desc"],
+      "enumTitles": ["Relevance", "Newest First", "Price: Low to High", "Price: High to Low"]
+    },
+    "includeDescription": {
+      "type": "boolean",
+      "title": "Include Full Descriptions",
+      "description": "Extract complete item descriptions (slower)",
+      "prefill": true,
+      "editor": "checkbox"
+    },
+    "maxResults": {
+      "title": "Max Results",
+      "type": "integer",
+      "description": "Maximum number of listings to scrape",
+      "default": 50,
+      "prefill": 3,
+      "minimum": 1,
+      "maximum": 500
+    },
+    "proxyConfiguration": {
+      "type": "object",
+      "title": "Proxy Configuration",
+      "description": "Apify proxy settings",
+      "prefill": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": ["RESIDENTIAL"]
+      },
+      "editor": "proxy"
+    }
+  },
+  "required": ["maxResults"]
+}

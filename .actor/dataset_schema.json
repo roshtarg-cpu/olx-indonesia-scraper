@@ -1,0 +1,85 @@
+{
+  "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+  "actorSpecification": 1,
+  "fields": {
+    "url": {
+      "type": "string",
+      "title": "URL",
+      "description": "Link to the listing"
+    },
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "description": "Item title/name"
+    },
+    "price": {
+      "type": "string",
+      "title": "Price",
+      "description": "Price in Rupiah"
+    },
+    "location": {
+      "type": "string",
+      "title": "Location",
+      "description": "City/region"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "description": "Item category"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "Full item description"
+    },
+    "seller": {
+      "type": "string",
+      "title": "Seller",
+      "description": "Seller name"
+    },
+    "postedDate": {
+      "type": "string",
+      "title": "Posted Date",
+      "description": "When the listing was posted"
+    },
+    "imageUrl": {
+      "type": "string",
+      "title": "Image URL",
+      "description": "Main listing image"
+    },
+    "scrapedAt": {
+      "type": "string",
+      "title": "Scraped At",
+      "description": "Extraction timestamp"
+    }
+  },
+  "views": {
+    "overview": {
+      "title": "Overview",
+      "transformation": {
+        "fields": ["title", "price", "location", "url"]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "title": {
+            "label": "Title",
+            "format": "text"
+          },
+          "price": {
+            "label": "Price",
+            "format": "text"
+          },
+          "location": {
+            "label": "Location",
+            "format": "text"
+          },
+          "url": {
+            "label": "URL",
+            "format": "link"
+          }
+        }
+      }
+    }
+  }
+}

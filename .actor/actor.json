@@ -1,0 +1,14 @@
+{
+  "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+  "actorSpecification": 1,
+  "name": "olx-indonesia-scraper",
+  "title": "OLX Indonesia Scraper - Cars, Property & Electronics",
+  "description": "Extract classified ads from OLX Indonesia (olx.co.id) - vehicles, property, electronics, jobs, and more. Get prices, locations, seller info.",
+  "version": "1.0",
+  "inputSchema": "./input_schema.json",
+  "outputSchema": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "dockerfile": "./Dockerfile"
+}
