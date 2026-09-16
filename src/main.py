@@ -29,9 +29,10 @@ async def main() -> None:
         # Get proxy URL
         proxy_url = None
         if proxy_config.get('useApifyProxy'):
-            proxy_url = await Actor.create_proxy_configuration(
+            proxy_configuration = await Actor.create_proxy_configuration(
                 groups=proxy_config.get('apifyProxyGroups', ['RESIDENTIAL'])
-            ).then(lambda cfg: cfg.new_url())
+            )
+            proxy_url = await proxy_configuration.new_url()
         
         # Build search URL
         base_url = 'https://www.olx.co.id'
